@@ -1,0 +1,29 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: black;
+}
+.li{
+    margin-right: 10px;
+}
+
+.brand-img{
+    display: inline-block;
+    position: relative;
+    left: 10px;
+    top: 2px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-image:url("https://cdn.discordapp.com/attachments/835059895648649216/839417607114719292/8c5dc3b8c1c7d8948a9cefb7eee54b7f.png");
+    background-position: center;
+    background-size: 100%;
+}
+.cursor{
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+}
