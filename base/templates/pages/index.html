@@ -7,7 +7,7 @@
                 <div class="cursor"></div>
             </div>
       <ul id="" class="right">
-        <li class="li"><a class="media" href="">Language</a></li>
+        <li class="li"><a class="media" href="#cards">Languages</a></li>
         <li class="li"><a class="media" href="">Projects</a></li>
         <li class="li"><a class="media" href="">Contact Us</a></li>
       </ul>
@@ -15,17 +15,20 @@
   </nav>
   <div id="cards">
     {% for item in items %}
-      <div class="card">
+      <div style="overflow: hidden;" class="card">
         <div class="card-image">
-          <img src="{{item.image}}">
-          <span class="card_title">{{item.title}}</span>
+          <img style="width: 300px; height: 160px;" class="img" src="{{item.image}}">
+          <span class="card_title">{{item.title | title}}</span>
         </div>
         <div class="card-content">
-          <p>{{item.description}}
-          </p>
+          <div >{{item.description}}
+          </div>
         </div>
       </div>
     {% endfor %}
   </div>
+  {% for project in projects %}
+  solam
+  {% endfor %}
       
     {% endblock content %}

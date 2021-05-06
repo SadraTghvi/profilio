@@ -20,7 +20,7 @@ body{
     width: 62px;
     height: 62px;
     border-radius: 50%;
-    background-image:url("https://cdn.discordapp.com/attachments/835059895648649216/839417607114719292/8c5dc3b8c1c7d8948a9cefb7eee54b7f.png");
+    background-image:url("https://cdn.discordapp.com/attachments/839607722428727337/839608377684000778/8c5dc3b8c1c7d8948a9cefb7eee54b7f.png");
     background-position: center;
     background-size: 100%;
 }
@@ -32,9 +32,7 @@ body{
 }
 
 .card{
-    width: 300px;
-    height: 300px;
-    
+    overflow: hidden;
 }
 .card_title{
     font-size: 24px;
@@ -50,6 +48,12 @@ body{
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    
+}
+
+#cards img{
+    width: 300px;
+    height: 160px;
 }
 
 
