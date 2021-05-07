@@ -4,7 +4,9 @@ from .models import *
 # Create your views here.
 
 def main(request):
-    item = lang.objects.all()
+    langs = Lang.objects.all()
+    project = Project.objects.all()
     return render(request,"pages/index.html",{
-        "items" : item,
+        "items": langs,
+        "projects": project,
     })
