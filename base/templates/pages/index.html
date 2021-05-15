@@ -29,8 +29,19 @@
   </div>
       <div class="line"></div>
     <h2 class="langs">Projects</h2>
+    <div class="main">
   {% for project in projects %}
-  solam
-  {% endfor %}
+    <div class="box">
+      <div>
+        <img src="static/img/{{project.image}}" alt="">
+      </div>
+      <p>{{project.title | title}}</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <footer>
+    
+  </footer>
       
     {% endblock content %}
