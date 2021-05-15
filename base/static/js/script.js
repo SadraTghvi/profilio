@@ -2,13 +2,6 @@ $(document).ready(function(){
     btn_click()
     tlit_card()
     dark_mode()
-    $(".main").slick({
-  dots: true,
-  infinite: true,
-  speed: 500,
-  fade: true,
-  cssEase: 'linear'
-});
 })
 
 function btn_click(){
