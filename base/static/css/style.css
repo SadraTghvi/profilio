@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 * {
     user-select: none;
@@ -24,7 +23,7 @@ html{
 }
 
 body{
-    background: grey;
+    background: #c9d1d9;
 }
 
 .li{
@@ -198,8 +197,71 @@ b{
   right: 0;
 }
 
+
+
+.toggle {
+  --width: 50px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle__input {
+  display: none;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: snow;
+  transition: background 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+  background: rgb(0, 0, 0);
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
 input{
     caret-color: cyan;
+}
+
+.dark-mode{
+    position: fixed;
+    top: 100px;
+    right: 50px;
+}
+
+.sun{
+    position: relative;
+    top: 33px;
+    right: 35px;
+}
+
+.moon{
+    position: relative;
+    bottom: 27px;
+    left: 60px;
 }
 
 
