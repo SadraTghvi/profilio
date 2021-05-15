@@ -2,7 +2,6 @@ $(document).ready(function(){
     btn_click()
     tlit_card()
     dark_mode()
-    
 })
 
 function btn_click(){
@@ -33,4 +32,12 @@ function dark_mode(){
         }
 
     })
+}
+
+function myFunction(){
+    if (window.pageYOffset > 200){
+        $(".back2top").animate({
+            "left": "30px"
+        },500)
+    }
 }

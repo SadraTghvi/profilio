@@ -289,21 +289,19 @@ input{
 }
 
 .back2top {
-    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    bottom: 25px;
-    right: 35px; 
-    z-index: 99; 
-    border: none; 
-    outline: none; 
+    width: 35px;
+    height: 35px;
+    bottom: 150px;
+    left: -40px;
     background-color: red; 
-    color: white; 
     cursor: pointer; 
-    padding: 15px; 
-    border-radius: 50%; 
-    font-size: 18px; 
+    border-radius: 10px; 
 }
 .fa-arrow-up{
-    width: 20px;
-    height: 20px;
+    color: #000000;
+    font-size: larger;
 }
