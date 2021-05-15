@@ -1,19 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    background-color: grey;
-}
-
 * {
-  scrollbar-width: thin;
-  scrollbar-color: rgb(0, 255, 200) rgb(0, 89, 255);
+    user-select: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(0, 255, 200) rgb(0, 89, 255);
 }
 
-/* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 10px;
 }
@@ -26,6 +18,15 @@ body{
   background-color: rgb(0, 255, 200);
   border-radius: 20px;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: grey;
+}
+
 .li{
     margin-right: 10px;
 }
@@ -83,29 +84,22 @@ body{
     text-align: center;
 }
 
+#contact{
+    margin-bottom: 80px;
+}
+
 #cards{
     margin: 80px auto;
     width: 80%;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    display: grid;
+  grid-template-columns: auto auto auto;
 }
 
 
-.line{
-    height: 5px;
-    width: 100%;
-    left: 0px;
-    background-color: black;
-    position: absolute;
-    top: 550px;
-    animation: line 15s infinite;
-    border-radius: 10px;
-}
 
 .main{
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: auto auto auto;
     align-items: center;
     width: 80%;
     margin: 0 auto;
@@ -151,6 +145,62 @@ body{
     transition-delay: .2s;
 }
 
+#seeMore{
+    position: relative;
+    left: 45%;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+b{
+    position: relative;
+    top: 100vh;
+}
+
+.button {
+    position: relative;
+    left: 45%;
+    display: inline-block;
+    border-radius: 14px;
+    background-color: #f4511e;
+    color: #000000;
+    text-align: center;
+    font-size: 28px;
+    width: 200px;
+    padding: 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+input{
+    caret-color: cyan;
+}
 
 
 @media only screen and (max-width:600px) {
@@ -176,15 +226,3 @@ body{
 }
 
 
-@keyframes line {
-    10%{background-color: rgb(100, 0, 0);}
-    20%{background-color: rgb(97, 80, 3);}
-    30%{background-color: rgb(149, 238, 6);}
-    40%{background-color: rgb(1, 68, 29);}
-    50%{background-color: rgb(15, 238, 238);}
-    60%{background-color: rgb(2, 24, 44);}
-    70%{background-color: rgb(28, 13, 240);}
-    80%{background-color: rgb(32, 2, 59);}
-    90%{background-color: rgb(241, 10, 184);}
-    100%{background-color: rgb(32, 1, 3);}
-}
