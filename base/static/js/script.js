@@ -1,9 +1,17 @@
 $(document).ready(function(){
-    brand_click()
+    btn_click()
+    tlit_card()
 })
 
-function brand_click(){
+function btn_click(){
     $(".brand-img").click(function(){
         window.open("https://github.com/SadraTghvi");
     })
+    $("#seeMore").click(function(){
+        window.open("https://github.com/SadraTghvi?tab=repositories");
+    })
+}
+
+function tlit_card(){
+    $(".card").tilt({})
 }
