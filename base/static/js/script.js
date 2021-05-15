@@ -2,6 +2,7 @@ $(document).ready(function(){
     btn_click()
     tlit_card()
     dark_mode()
+    
 })
 
 function btn_click(){

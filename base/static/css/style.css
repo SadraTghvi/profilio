@@ -91,14 +91,15 @@ body{
     margin: 80px auto;
     width: 80%;
     display: grid;
-  grid-template-columns: auto auto auto;
+    place-items: center;
+    grid-template-columns: auto auto auto;
 }
 
 
 
 .main{
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 80%;
     margin: 0 auto;
