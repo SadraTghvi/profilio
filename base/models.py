@@ -14,7 +14,7 @@ class Project(models.Model):
     title = models.CharField(max_length=50)
     image = models.CharField(max_length=200)
     description = models.TextField()
-    link = models.CharField(max_length=200,null=False,default=" ")
+    link = models.CharField(max_length=200,null=False,default="https://github.com/SadraTghvi")
 
     def __str__(self):
         return self.title
