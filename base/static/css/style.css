@@ -97,8 +97,8 @@ body{
 
 
 .main{
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 80%;
     margin: 0 auto;
