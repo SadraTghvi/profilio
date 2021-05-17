@@ -22,12 +22,14 @@ function dark_mode(){
     $(".toggle__input").on("change",function(){
         if ($(this).is(":checked")){
             $("body").css("background-color","#0d1117")
+            $(".page-footer-mine ,.nav-wrapper").css("background-color","#000000")
             $(".langs").css("color","#f0f6fc")
             $(".card").css("background-color","#808080")
             $(".card_title").css("color","#000000")
             
         } else {
             $("body").css("background-color","")
+            $(".page-footer-mine ,.nav-wrapper").css("background-color","")
             $(".card").css("background-color","")
             $(".card_title").css("color","")
         }
