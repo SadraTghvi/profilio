@@ -26,12 +26,14 @@ function dark_mode(){
             $(".langs").css("color","#f0f6fc")
             $(".card").css("background-color","#808080")
             $(".card_title").css("color","#000000")
+            $(".heading-section").css("color","#FFF")
             
         } else {
             $("body").css("background-color","")
             $(".page-footer-mine ,.nav-wrapper").css("background-color","")
             $(".card").css("background-color","")
             $(".card_title").css("color","")
+            $(".heading-section").css("color","")
         }
 
     })
