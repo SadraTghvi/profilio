@@ -23,5 +23,5 @@ class Contact(models.Model):
     name = models.CharField(max_length=100,blank=False,null=False)
     lname = models.CharField(max_length=100, blank=False, null=False)
     gmail = models.EmailField(max_length=254)
-    bday = models.DateTimeField()
+    description = models.TextField(default=" ")
 
