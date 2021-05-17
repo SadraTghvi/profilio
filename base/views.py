@@ -12,3 +12,6 @@ def main(request):
         "items": langs,
         "projects": project,
     })
+
+def contact(request):
+    return render(request,"pages/contact.html")
