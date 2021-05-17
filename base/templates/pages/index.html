@@ -1,109 +1,7 @@
 {% extends 'main.html' %}
 
 {% block content %}
-  <div class="dark-mode">
-    <div class="sun">
-      <svg version="1.1" width="30px" height="30px" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-      y="0px" viewBox="0 0 187.322 187.322" style="enable-background:new 0 0 187.322 187.322;" xml:space="preserve">
-      <g>
-        <polygon style="fill:#F7A663;" points="101.677,40.71 93.661,0 85.645,40.71 93.661,40.71 	" />
-        <polygon style="fill:#FFC80A;" points="67.185,47.804 74.127,43.796 46.83,12.548 60.243,51.812 	" />
-        <polygon style="fill:#F7A663;" points="47.804,67.186 51.811,60.243 12.548,46.83 43.795,74.128 	" />
-        <polygon style="fill:#FFC80A;" points="40.709,93.66 40.71,85.646 0,93.66 40.709,101.677 	" />
-        <polygon style="fill:#F7A663;" points="47.803,120.137 43.796,113.194 12.548,140.491 51.81,127.079 	" />
-        <polygon style="fill:#FFC80A;" points="60.244,135.511 46.83,174.774 74.127,143.527 67.184,139.519 	" />
-        <polygon style="fill:#F7A663;" points="85.645,146.611 93.661,187.322 101.677,146.613 93.661,146.613 	" />
-        <polygon style="fill:#FFC80A;" points="120.137,139.519 113.195,143.525 140.491,174.774 127.079,135.511 	" />
-        <polygon style="fill:#F7A663;" points="139.519,120.137 135.51,127.077 174.773,140.491 143.525,113.194 	" />
-        <polygon style="fill:#FFC80A;" points="187.322,93.66 146.612,85.645 146.613,93.66 146.612,101.676 	" />
-        <polygon style="fill:#F7A663;" points="139.518,67.184 143.525,74.126 174.773,46.83 135.509,60.243 	" />
-        <polygon style="fill:#FFC80A;" points="127.078,51.812 140.491,12.548 113.193,43.796 120.136,47.804 	" />
-        <path style="fill:#FDD633;"
-        d="M93.661,45.265v96.793c26.729,0,48.397-21.668,48.397-48.397S120.39,45.265,93.661,45.265z" />
-        <path style="fill:#F4CA19;" d="M45.265,93.661c0,26.729,21.668,48.397,48.396,48.397V45.265
-    		C66.933,45.265,45.265,66.933,45.265,93.661z" />
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-      <g>
-      </g>
-    </svg>
-  </div>
-    <label class="toggle" for="myToggle">
-      <input class="toggle__input" name="" type="checkbox" id="myToggle">
-      <div class="toggle__fill"></div>
-    </label>
-    <div class="moon">
-      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-      y="0px" width="20px" height="20px" viewBox="0 0 292.299 292.299"
-        style="enable-background:new 0 0 292.299 292.299;" xml:space="preserve">
-        <g>
-          <g>
-            <path d="M153.699,292.138C68.95,292.138,0,223.185,0,138.439C0,79.742,32.675,27.002,85.28,0.807
-            c2.369-1.174,5.215-0.718,7.077,1.144c1.864,1.864,2.345,4.711,1.183,7.074C83.941,28.527,79.077,49.496,79.077,71.33
-            c0,77.972,63.432,141.407,141.395,141.407c22.08,0,43.247-4.978,62.942-14.777c2.366-1.177,5.213-0.721,7.074,1.141
-            c1.873,1.867,2.342,4.714,1.177,7.073C265.61,259.195,212.738,292.138,153.699,292.138z" />
-          </g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-        <g>
-        </g>
-      </svg>
-    </div>
-  </div>
+  
  <nav>
     <div id="nav" class="nav-wrapper">
             <div class="brand-img">
@@ -112,7 +10,7 @@
       <ul id="" class="right">
         <li class="li"><a class="media" href="#languages">Languages</a></li>
         <li class="li"><a class="media" href="#projects">Projects</a></li>
-        <li class="li"><a class="media" href="#contact">Contact Us</a></li>
+        <li class="li"><a class="media" href="{% url 'contact' %}">Contact Us</a></li>
       </ul>
     </div>
   </nav>
@@ -130,6 +28,7 @@
       </div>
       {% endfor %}
   </div>
+  <button class="button" id="seeMore" style="vertical-align:middle"><span>See More </span></button>
   <h2 class="langs" id="projects">Projects</h2>
   <div style="margin-top: 80px;" class="main">
     {% for project in projects %}
@@ -138,66 +37,18 @@
         <img src="static/img/{{project.image}}" alt="">
       </div>
       <p>{{project.title | title}}</p>
-      <a href="{{project.link}}">See Repos</a>
+      <a href="">See Repos</a>
     </div>
     {% endfor %}
   </div>
   <button class="button" id="seeMore" style="vertical-align:middle"><span>See More </span></button>
   
-  <section>
-    <h2 class="langs" id="contact">Contact Us</h2>
-    <div class="container">
-      <form action=" " method="post">
-        {% csrf_token %}
-        <fieldset>
-          <legend>Information :</legend>
-          <label for="fname">First name:</label>
-          <input type="text" id="fname" name="fname"><br><br>
-          <label for="lname">Last name:</label>
-          <input type="text" id="lname" name="lname"><br><br>
-          <label for="email">Gmail:</label>
-          <input type="email" id="email" name="email"><br><br>
-          <label for="birthday">Birthday:</label>
-          <input type="date" id="birthday" name="birthday"><br><br>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-        </fieldset>
-      </form>
-    </div>
-  </section>
+  
     <div class="back2top">
       <a href="#" ><i class="fas fa-arrow-up"></i></a>
     </div>
 
-  <footer>
-    <div class="page-footer">
-
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Profilio</h5>
-            <p style="margin: 50px 0;" class="grey-text text-lighten-4">This Site Is All Belong To SadraTghvi GitHub Page For
-              More Information You Can Visit Out GitHub Site</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-              <h5 style="text-align: right;" class="white-text">با 00 تیم</h5>
-              <ul>
-                <li style="margin: 10px 0; text-align: right;"><a class="grey-text text-lighten-3"> تماس با ما </a></li>
-                <li style="margin: 10px 0; text-align: right;"><a class="grey-text text-lighten-3"> همکاری با ما </a></li>
-                <li style="text-align: right; margin: 10px 0;"><a class="grey-text text-lighten-3">درمورد ما</a></li>
-                <li style="text-align: right;margin: 10px 0;"><a class="grey-text text-lighten-3">گزارش باگ</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer-copyright">
-          <div class="container">
-            © 2021 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="https://github.com/SadraTghvi">Git Hub Page</a>
-          </div>
-        </div>
-        
-      </div>
-      </footer>
+  
       
       {% endblock content %}
       
