@@ -296,7 +296,7 @@ input{
     width: 35px;
     height: 35px;
     bottom: 150px;
-    left: -40px;
+    left: 40px;
     background-color: red; 
     cursor: pointer; 
     border-radius: 10px; 

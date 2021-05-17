@@ -2,6 +2,7 @@ $(document).ready(function(){
     btn_click()
     tlit_card()
     dark_mode()
+    myFunction()
 })
 
 function btn_click(){
@@ -35,9 +36,12 @@ function dark_mode(){
 }
 
 function myFunction(){
-    if (window.pageYOffset > 200){
-        $(".back2top").animate({
-            "left": "30px"
-        },500)
-    }
+    $(".back2top").fadeOut(0)
+    document.addEventListener("scroll",function(){
+        if (window.pageYOffset > 300){
+            $(".back2top").fadeIn()
+        } else{
+            $(".back2top").fadeOut()
+        }
+    })
 }
