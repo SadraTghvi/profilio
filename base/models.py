@@ -20,8 +20,11 @@ class Project(models.Model):
         return self.title
 
 class Contact(models.Model):
-    name = models.CharField(max_length=100,blank=False,null=False)
-    lname = models.CharField(max_length=100, blank=False, null=False)
+    full_name = models.CharField(max_length=100,blank=False,null=False)
+    subject = models.CharField(max_length=100, blank=False, null=False)
     gmail = models.EmailField(max_length=254)
     description = models.TextField(default=" ")
+
+    def __str__(self):
+        return self.full_name
 
