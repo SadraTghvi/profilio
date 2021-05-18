@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import *
 import requests
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponseRedirect, HttpResponse
 
 # Create your views here.
 
@@ -15,3 +15,15 @@ def main(request):
 
 def contact(request):
     return render(request,"pages/contact.html")
+
+def sendform(request):
+    if request.method == "POST":
+        my_full_name = request.POST["fname"]
+        my_subject = request.POST["subject"]
+        my_gmail = request.POST["email"]
+        my_description = request.POST["message"]
+
+        create_obj = Contact.objects.create(full_name=my_full_name, subject=my_subject, gmail=my_gmail, description=my_description)
+        return HttpResponseRedirect("/")
+
+    return HttpResponse("something went wrong")
