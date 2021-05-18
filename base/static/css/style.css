@@ -269,7 +269,7 @@ input{
     height: 35px;
     bottom: 150px;
     left: 40px;
-    background-color: red; 
+    background-color: #ff0000; 
     cursor: pointer; 
     border-radius: 10px; 
 }

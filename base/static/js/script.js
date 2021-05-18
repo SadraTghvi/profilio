@@ -3,6 +3,7 @@ $(document).ready(function(){
     tlit_card()
     dark_mode()
     myFunction()
+    back2Top()
 })
 
 function btn_click(){
@@ -47,5 +48,11 @@ function myFunction(){
         } else{
             $(".back2top").fadeOut()
         }
+    })
+}
+
+function back2Top(){
+    $(".back2top").click(function(){
+        window.scrollTo(0,0)
     })
 }
