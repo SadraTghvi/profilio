@@ -176,12 +176,12 @@
                 <div id="form-message-success" class="mb-4">
                   Your message was sent, thank you!
                 </div>
-                <form method="POST" id="contactForm" name="contactForm">
+                <form action="/sendform/" method="POST" id="contactForm" name="contactForm">
                 {% csrf_token %}
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name">
+                        <input type="text" class="form-control" name="fname" id="name" placeholder="Full Name">
                       </div>
                     </div>
                     <div class="col-md-6">
