@@ -1,29 +1,44 @@
-from django.shortcuts import render,redirect
-from .models import *
 import requests
-from django.http import JsonResponse,HttpResponseRedirect, HttpResponse
 
-# Create your views here.
+from django.shortcuts import render, redirect
+
+from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
+from django.views.decorators.http import require_POST
+from django.core.validators import EmailValidator
+from django.core.exceptions import ValidationError
+
+from .models import *
+
 
 def main(request):
     langs = Lang.objects.all()
     project = Project.objects.all()
-    return render(request,"pages/index.html",{
+    return render(request, "pages/index.html", {
         "items": langs,
         "projects": project,
     })
 
+
 def contact(request):
     return render(request,"pages/contact.html")
 
+
+@require_POST
 def sendform(request):
-    if request.method == "POST":
-        my_full_name = request.POST["fname"]
-        my_subject = request.POST["subject"]
-        my_gmail = request.POST["email"]
-        my_description = request.POST["message"]
+    full_name = request.POST.get("fname")
+    subject = request.POST.get("subject")
+    email = request.POST.get("email")
+    description = request.POST.get("message")
 
-        create_obj = Contact.objects.create(full_name=my_full_name, subject=my_subject, gmail=my_gmail, description=my_description)
+    if full_name and subject and email and description:
+        try:
+            ev = EmailValidator()
+            ev(email)
+        except ValidationError:
+            return HttpResponse("enter a valid email")
+
+        ct = Contact(full_name=full_name, subject=subject, email=email, description=description)
+        ct.save()
         return HttpResponseRedirect("/")
-
-    return HttpResponse("something went wrong")
+    else:
+        return HttpResponse("All fields are Required")
