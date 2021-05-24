@@ -42,3 +42,13 @@ def sendform(request):
         return HttpResponseRedirect("/")
     else:
         return HttpResponse("All fields are Required")
+
+
+
+def theme(r):
+    if r.method == 'POST':
+        theme = r.POST.get('theme')
+        if theme == 'dark' or theme == 'light':
+            r.session['theme'] = theme
+
+    return JsonResponse({f'theme': r.session.get('theme')})
