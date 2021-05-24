@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.0.3/tilt.jquery.min.js"
         integrity="sha512-14AZ/DxUrlF26z6v7egDkpJHKyJRn/7ue2BgpWZ/fmqrqVzf4PrQnToy99sHmKwzKev/VZ1tjPxusuTV/n8CcQ=="
         crossorigin="anonymous"></script>
-    <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="{% static 'js/script.js' %}" defer  csrf_token={{ csrf_token }}></script>
 </head>
 <body >
     <div class="dark-mode">
