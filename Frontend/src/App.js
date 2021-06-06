@@ -5,12 +5,8 @@ import { transitions, Provider as AlertProvider } from 'react-alert'
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 
 // components
-// import Header from './components/layouts/Header'
-import Home from './components/Home'
-// import Account from './components/accounts/Account'
-// import Error from './components/common/Error'
-// import Login from './components/accounts/Login'
 import Alert from './components/layouts/Alert'
+import Profile from './components/Profile'
 
 // redux stuffs
 import store from './store';
@@ -37,9 +33,9 @@ const App = () => {
         dispatch(loadProjects());
     }, [dispatch]);
 
-    // useEffect(() => {
-    //     setUser(account.user);
-    // }, [account]);
+    useEffect(() => {
+        document.title = (profile.profile.name || '00 Team') + ' - Profile' 
+    }, [profile]);
 
     console.log(profile);
     console.log(projects);
@@ -49,10 +45,10 @@ const App = () => {
         <>
             {/* <Header /> */}
 
-            <div className='content'>
+            {/* <div className='content'> */}
                 <Switch>
                     <Route exact path="/">
-                        <Home />
+                        <Profile />
                     </Route>
 
                     {/* <Route path="/account">
@@ -71,7 +67,7 @@ const App = () => {
                         <Error code='404' title='Not Found' description={<>The requested URL <span className='location-path'>{location.pathname}</span> was not found on this server. That’s all we know.</>} />
                     </Route> */}
                 </Switch>
-            </div>
+            {/* </div> */}
         </>
     )
 }

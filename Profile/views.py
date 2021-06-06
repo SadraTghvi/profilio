@@ -9,7 +9,7 @@ from .models import Profile, Lang, Project
 def profile(r):
     p = Profile.objects.all().last()
 
-    pf = None
+    pf = {}
 
     if p:
         pf = {
