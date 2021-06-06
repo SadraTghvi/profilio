@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+    border: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+:root {
+    /* dark theme */
+    --dark-theme-bg: #000;
+    --dark-theme-fg: #FFF;
+
+    /* light theme */
+    --light-theme-bg: #FFF;
+    --light-theme-fg: #000;
+}
+
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #111;
+    border-radius: 20px;
+}
+
+/* selection */
+::selection {
+    background: #F00;
+    color: #000;
+}
+
+body {
+    width: 100%;
+    /* background-color: #000; */
+    text-align: center;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.content {
+    padding-top: 60px;
+    min-height: 100vh;
+}
+
+
