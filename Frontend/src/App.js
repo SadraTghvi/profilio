@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route, useLocation, Redirect, useParams } from 'react-router-dom';
 import { transitions, Provider as AlertProvider } from 'react-alert'
 import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux';
 
 // components
 import Alert from './components/layouts/Alert'
-import Profile from './components/Profile'
+import Header from './components/layouts/Header'
+import Langs from './components/Langs'
 
 // redux stuffs
 import store from './store';
 import loadProfile from './actions/profile';
 import loadProjects from './actions/projects';
-// import profile from './reducers/profile';
+import loadLangs from './actions/langs'
+import loadTheme from './actions/theme'
 
 
 const alertOptions = {
@@ -23,72 +24,44 @@ const alertOptions = {
 
 const App = () => {
     const dispatch = useDispatch();
-    const profile = useSelector((state) => state.profile);
-    const projects = useSelector((state) => state.projects);
-    // const [profile, setProfile] = useState(null);
-    const location = useLocation();
+    const profileState = useSelector((state) => state.profile);
+    // const projectState = useSelector((state) => state.projects);
+    // const langState = useSelector((state) => state.langs);
+    const themeState = useSelector((state) => state.theme);
 
     useEffect(() => {
         dispatch(loadProfile());
         dispatch(loadProjects());
+        dispatch(loadLangs());
+        dispatch(loadTheme());
     }, [dispatch]);
 
     useEffect(() => {
-        document.title = (profile.profile.name || '00 Team') + ' - Profile' 
-    }, [profile]);
+        if (profileState.profile) document.title = profileState.profile.name + ' - Profile'
+    }, [profileState]);
 
-    console.log(profile);
-    console.log(projects);
+    useEffect(() => {
+        document.body.classList = themeState.theme || 'light'
+    }, [themeState]);
 
 
     return (
         <>
-            {/* <Header /> */}
-
-            {/* <div className='content'> */}
-                <Switch>
-                    <Route exact path="/">
-                        <Profile />
-                    </Route>
-
-                    {/* <Route path="/account">
-                        <Account />
-                    </Route>
-
-                    <Route path="/login" >
-                        {user ? (user.username ? <Redirect to='/account' /> : <Login />) : <Login />}
-                    </Route>
-
-                    <Route path="/project/:slug" >
-                        <Child />
-                    </Route>
-                    
-                    <Route path="*">
-                        <Error code='404' title='Not Found' description={<>The requested URL <span className='location-path'>{location.pathname}</span> was not found on this server. That’s all we know.</>} />
-                    </Route> */}
-                </Switch>
-            {/* </div> */}
+            <Header />
+            <div className='content'>
+                <Langs />
+            </div>
         </>
     )
 }
 
 export default App
 
-// function Child() {
-//     let { slug } = useParams();
-  
-//     return (
-//         <span style={{ color: '#FFF' }} >{slug}</span>
-//     );
-// }
-
 
 ReactDOM.render(
     <ReduxProvider store={store}>
         <AlertProvider template={Alert} {...alertOptions} >
-            <Router>
-                <App />
-            </Router>
+            <App />
         </AlertProvider>
     </ReduxProvider>,
 
