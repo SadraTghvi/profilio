@@ -1,0 +1,51 @@
+{
+  "name": "profilio",
+  "version": "1.0.0",
+  "description": "idk heh heh xD",
+  "main": "App.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch ./Frontend/src/App.js -o ./Frontend/static/build/",
+    "build": "webpack --mode production ./Frontend/src/App.js -o ./Frontend/static/build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SadraTghvi/profilio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SadraTghvi/profilio/issues"
+  },
+  "homepage": "https://github.com/SadraTghvi/profilio",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "@emotion/babel-plugin": "^11.3.0",
+    "axios": "^0.21.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-alert": "^7.0.3",
+    "react-desktop": "^0.3.9",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-redux": "^7.2.4",
+    "react-slick": "^0.28.1",
+    "react-spinners": "^0.11.0",
+    "react-transition-group": "^4.4.2",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1"
+  }
+}
