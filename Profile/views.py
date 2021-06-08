@@ -1,5 +1,7 @@
 import json
 
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_GET, require_POST
@@ -83,3 +85,9 @@ def toggleTheme(r):
     
     return JsonResponse({'theme': r.session.get('theme')})
 
+
+@receiver(pre_delete, sender=Profile)
+@receiver(pre_delete, sender=Lang)
+@receiver(pre_delete, sender=Project)
+def delete_images(sender, instance, **kwargs):
+    instance.img.storage.delete(instance.img.name)
