@@ -16,6 +16,9 @@ import loadLangs from './actions/langs'
 import loadTheme from './actions/theme'
 
 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 const alertOptions = {
     position: 'top right',
     timeout: 7000,
@@ -44,11 +47,15 @@ const App = () => {
         document.body.classList = themeState.theme || 'light'
     }, [themeState]);
 
+    if (profileState.profile === null) {
+        return <div className='nothing-for-show'><h2>Nothin For Show. No Profile</h2></div>
+    }
+
 
     return (
         <>
             <Header />
-            <div className='content'>
+            <div className='c'>
                 <Langs />
             </div>
         </>
