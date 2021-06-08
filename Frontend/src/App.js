@@ -7,6 +7,8 @@ import { Provider as ReduxProvider, useSelector, useDispatch } from 'react-redux
 import Alert from './components/layouts/Alert'
 import Header from './components/layouts/Header'
 import Langs from './components/Langs'
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 // redux stuffs
 import store from './store';
@@ -57,6 +59,8 @@ const App = () => {
             <Header />
             <div className='c'>
                 <Langs />
+                <Projects />
+                <Contact />
             </div>
         </>
     )
