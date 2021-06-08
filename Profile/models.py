@@ -15,7 +15,7 @@ class Profile(models.Model):
 class Lang(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    img = models.ImageField(upload_to="Profile/Lang/img/")
+    img = models.ImageField(upload_to="Profiles/Lang/img/")
     description = models.TextField()
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Lang(models.Model):
 class Project(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    img = models.ImageField(upload_to="Profile/Projects/img/")
+    img = models.ImageField(upload_to="Profiles/Projects/img/")
     description = models.TextField()
     git = models.URLField(default="https://github.com/", null=True, blank=True)
 
