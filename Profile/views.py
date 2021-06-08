@@ -1,6 +1,8 @@
+import json
+
 from django.shortcuts import render
 from django.http import JsonResponse
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
 
 from .models import Profile, Lang, Project
 
@@ -9,7 +11,7 @@ from .models import Profile, Lang, Project
 def profile(r):
     p = Profile.objects.all().last()
 
-    pf = {}
+    pf = None
 
     if p:
         pf = {
@@ -55,4 +57,29 @@ def projects(r):
         })
     
     return JsonResponse({'projects': pjs})
+
+
+@require_POST
+def toggleTheme(r):
+    if not r.session.get('theme'):
+        r.session['theme'] = 'light'
+    
+    data = {}
+
+    if r.POST:
+        data = r.POST
+    elif r.body:
+        try:
+            data = json.loads(r.body)
+        except Exception:
+            pass
+    
+
+    if data.get('toggle'):
+        if r.session.get('theme') == 'light':
+            r.session['theme'] = 'dark'
+        else:
+            r.session['theme'] = 'light'
+    
+    return JsonResponse({'theme': r.session.get('theme')})
 

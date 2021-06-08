@@ -12,3 +12,6 @@ export const PROJECTS_ERROR = 'PROJECTS_ERROR';
 export const LANGS_LOADING = 'LANGS_LOADING';
 export const LANGS_LOADED = 'LANGS_LOADED';
 export const LANGS_ERROR = 'LANGS_ERROR';
+
+
+export const THEME = 'THEME';
