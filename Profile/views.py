@@ -1,4 +1,4 @@
-import json
+import json, time, requests
 
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
@@ -7,6 +7,13 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_GET, require_POST
 
 from .models import Profile, Lang, Project
+
+
+def BodyLoader(body):
+    try:
+        return json.loads(body)
+    except Exception:
+        return {}
 
 
 @require_GET
@@ -84,6 +91,50 @@ def toggleTheme(r):
             r.session['theme'] = 'light'
     
     return JsonResponse({'theme': r.session.get('theme')})
+
+
+
+@require_POST
+def send_contact(r):
+    last_request = r.session.get('last-request')
+
+    if last_request:
+        if last_request > int(time.time()):
+            return JsonResponse({'error': '1 message pre hours'}, status=403)
+
+    data = {}
+
+    if r.POST:
+        data = r.POST
+    elif r.body:
+        data = BodyLoader(r.body)
+    
+    if not data.get('name') or not data.get('mail') or not data.get('msg'):
+        return JsonResponse({'error':'value error'}, status=400)
+    
+    p = Profile.objects.all().last()
+
+    if not p:
+        return JsonResponse({'error': 'no profile'}, status=404)
+    
+    if not p.discord_webhook:
+        return JsonResponse({'error': 'no webhook'}, status=404)
+    
+    res = requests.post(p.discord_webhook, json={
+        'username': 'Contact',
+        'avatar_url':'https://cdn.discordapp.com/attachments/731174051170746500/851794441593552926/1622826298059_copy.png',
+        'embeds': [{
+            'title': data.get('name') or 'No Name',
+            'description': f'{data.get("mail")}\n```{data.get("msg")}```',
+            'color': 16690889,
+        }]
+    })
+
+    r.session['last-request'] = int(time.time()) + 3600
+
+    return JsonResponse({'status':'sended'}, status=res.status_code)
+
+
 
 
 @receiver(pre_delete, sender=Profile)
