@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
-import Slider from "react-slick";
+import React from 'react'
+import Slider from 'react-slick'
 import { FcNext, FcPrevious } from 'react-icons/fc'
 
-const Arrow = ({ className, style, onClick }) => {
+import './sass/slideshow.scss'
+
+
+const Arrow = ({ className, onClick }) => {
     let icon = null;
     let pos = null;
 
@@ -22,24 +24,7 @@ const Arrow = ({ className, style, onClick }) => {
     )
 }
 
-const Projects = () => {
-    const projectsState = useSelector((state) => state.projects);
-
-    if (projectsState.projects.length < 1) return <></>
-
-    let projs = projectsState.projects.map((l, idx) => 
-        <div className='projs-pad' key={idx}>
-            <div className='projs-item'>
-                <div className='img' style={{ '--img-bg' : `url(${l.img})` }} />
-                <span>{l.name}</span>
-                <p>{l.description}</p>
-            </div>
-        </div>
-    );
-
-    
-    let slidesToShow = (projectsState.projects.length < 5 ? projectsState.projects.length : 5);
-    
+const SlideShow = ({ children, slidesToShow }) => {
 
     const settings = {
         infinite: true,
@@ -77,16 +62,10 @@ const Projects = () => {
     };
 
     return (
-        <div className='projects'>
-            <span className='t'>Projects</span>
-            <div className='projer'>
-                <div className='projlist'>
-                <Slider {...settings}> {projs} </Slider>
-                    
-                </div>
-            </div>
+        <div className='slides-container'>
+            <Slider {...settings}> {children} </Slider>
         </div>
     )
 }
 
-export default Projects
+export default SlideShow
