@@ -3,6 +3,9 @@ import { useSelector } from 'react-redux';
 import Slider from "react-slick";
 import { FcNext, FcPrevious } from 'react-icons/fc'
 
+
+import './sass/projects.scss'
+
 const Arrow = ({ className, style, onClick }) => {
     let icon = null;
     let pos = null;

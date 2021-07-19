@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { Window, TitleBar, TextInput, Button } from 'react-desktop/macOs';
 import axios from 'axios';
 import { useAlert } from 'react-alert';
+import JsCookie from 'js-cookie'
 
 
-var csrfToken = document.currentScript.getAttribute('csrfToken');
+import './sass/contact.scss'
+
+const csrfToken = document.currentScript.getAttribute('csrfToken') | JsCookie.get('csrftoken')
 
 
 const Contact = () => {

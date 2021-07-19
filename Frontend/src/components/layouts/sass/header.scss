@@ -1,4 +1,9 @@
-.header-navbar {
+.header-container {
+    width: 100%;
+    height: 70px;
+}
+
+.header-container .header-navbar {
     width: 100%;
     height: 70px;
     background-color: var(--header-bg-color);
