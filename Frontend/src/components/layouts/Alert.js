@@ -2,6 +2,8 @@ import React from 'react'
 import { VscInfo, VscError, VscCheck } from 'react-icons/vsc'
 
 
+import './sass/alert.scss'
+
 const Alert = ({ message, options, close }) => {  
     let icon = null;
     let title = null;
