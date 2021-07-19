@@ -13,11 +13,11 @@ import Projects from './components/main/Projects';
 import Contact from './components/main/Contact';
 
 // redux stuffs
-import store from './store';
-import loadProfile from './actions/profile';
-import loadProjects from './actions/projects';
-import loadLangs from './actions/langs'
-import loadTheme from './actions/theme'
+import store from './redux/store';
+import loadProfile from './redux/actions/profile';
+import loadProjects from './redux/actions/projects';
+import loadLangs from './redux/actions/langs'
+import loadTheme from './redux/actions/theme'
 
 
 import "slick-carousel/slick/slick.css"; 

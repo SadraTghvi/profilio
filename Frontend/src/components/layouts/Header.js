@@ -4,7 +4,7 @@ import { SiGithub } from 'react-icons/si'
 import { FiSun, FiMoon } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-import TTheme from '../../actions/theme'
+import TTheme from '../../redux/actions/theme'
 
 import HeaderLink from '../common/HeaderLink'
 
