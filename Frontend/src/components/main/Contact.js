@@ -7,7 +7,7 @@ import JsCookie from 'js-cookie'
 
 import './sass/contact.scss'
 
-const csrfToken = document.currentScript.getAttribute('csrfToken') | JsCookie.get('csrftoken')
+const csrfToken = document.currentScript.getAttribute('csrfToken')
 
 
 const Contact = () => {
@@ -31,7 +31,8 @@ const Contact = () => {
             alert.success(res.data.status || 'sended')
         })
         .catch((error) => {
-            alert.error(error + '' || 'Error')
+            if (error.response) if (error.response.data.error) return alert.error(error.response.data.error || 'Error to send Mail')
+            alert.error(error.message || 'Error to send Mail')
         })
     }
 
