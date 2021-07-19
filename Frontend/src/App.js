@@ -20,8 +20,8 @@ import loadLangs from './redux/actions/langs'
 import loadTheme from './redux/actions/theme'
 
 
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick-theme.css';
 
 import './components/sass/base.scss'
 
@@ -38,8 +38,6 @@ const alertOptions = {
 const App = () => {
     const dispatch = useDispatch();
     const profileState = useSelector((state) => state.profile);
-    // const projectState = useSelector((state) => state.projects);
-    // const langState = useSelector((state) => state.langs);
     const themeState = useSelector((state) => state.theme);
 
     useEffect(() => {
@@ -66,16 +64,16 @@ const App = () => {
         <>
             <Header />
             <Switch>
-                <Route exact path="/">
+                <Route path='/about'>
+                    about
+                </Route>
+
+                <Route exact path={['/', '*']}>
                     <div className='main'>
                         <Langs />
                         <Projects />
                         <Contact />
                     </div>
-                </Route>
-
-                <Route path="/about">
-                    about
                 </Route>
             </Switch>
         </>
