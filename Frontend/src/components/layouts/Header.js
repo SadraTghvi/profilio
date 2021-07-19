@@ -5,6 +5,8 @@ import { FiSun, FiMoon } from 'react-icons/fi'
 
 import TTheme from '../../actions/theme'
 
+import HeaderLink from '../common/HeaderLink'
+
 const Header = () => {
     const dispatch = useDispatch();
     const themeState = useSelector((state) => state.theme);
@@ -17,9 +19,13 @@ const Header = () => {
             <div className='info'>
                 <img src={profileState.profile.img} />
                 <span>{profileState.profile.name}</span>
+                <div className='links' style={{ padding: '10px' }}>
+                    <HeaderLink to='/about' style={{ fontSize: '20px' }} >About Me</HeaderLink>
+                </div>
             </div>
+            {/* <a className='org' href={profileState.profile.organization}>Organization</a>  */}
             <div className='git'>
-                {profileState.profile.organization ? <a className='org' href={profileState.profile.organization}>Organization</a> : <></>}
+                {profileState.profile.organization ? <HeaderLink to={profileState.profile.organization} >Organization</HeaderLink> : <></>}
                 <a href={profileState.profile.github}><SiGithub /></a>
             </div>
 
