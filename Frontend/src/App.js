@@ -12,6 +12,8 @@ import Langs from './components/main/Langs'
 import Projects from './components/main/Projects';
 import Contact from './components/main/Contact';
 
+import About from './components/about/About'
+
 // redux stuffs
 import store from './redux/store';
 import loadProfile from './redux/actions/profile';
@@ -65,7 +67,7 @@ const App = () => {
             <Header />
             <Switch>
                 <Route path='/about'>
-                    about
+                    <About />
                 </Route>
 
                 <Route exact path={['/', '*']}>
