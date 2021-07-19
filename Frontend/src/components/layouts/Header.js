@@ -7,6 +7,8 @@ import TTheme from '../../actions/theme'
 
 import HeaderLink from '../common/HeaderLink'
 
+import './sass/header.scss'
+
 const Header = () => {
     const dispatch = useDispatch();
     const themeState = useSelector((state) => state.theme);
@@ -25,7 +27,7 @@ const Header = () => {
             </div>
             {/* <a className='org' href={profileState.profile.organization}>Organization</a>  */}
             <div className='git'>
-                {profileState.profile.organization ? <HeaderLink to={profileState.profile.organization} >Organization</HeaderLink> : <></>}
+                {profileState.profile.organization ? <HeaderLink to={profileState.profile.organization} externalLink={true} >Organization</HeaderLink> : <></>}
                 <a href={profileState.profile.github}><SiGithub /></a>
             </div>
 
